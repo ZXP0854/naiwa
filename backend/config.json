@@ -1,0 +1,13 @@
+{
+  "engine": "mysql",
+  "fallback_sqlite": true,
+  "mysql": {
+    "host": "127.0.0.1",
+    "port": 3306,
+    "user": "root",
+    "password": "",
+    "database": "naiwa"
+  },
+  "sqlite_path": "data/naiwa.db",
+  "port": 8000
+}

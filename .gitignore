@@ -1,0 +1,12 @@
+# 本机凭据与数据（不要提交）
+backend/admin.key
+backend/config.local.json
+data/naiwa.db
+.env
+
+# Python 缓存
+__pycache__/
+*.pyc
+
+# 原始素材（体积较大）
+部分网页实例图片/

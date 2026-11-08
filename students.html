@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>学生信息管理 · 奶蛙大学</title>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-page="students">
+
+<nav class="topnav">
+  <span class="brand"><img src="assets/badge.png" alt="校徽" />奶蛙大学</span>
+  <a class="nav-link" href="index.html">首页</a>
+  <a class="nav-link" href="majors.html">学院专业合辑</a>
+  <a class="nav-link active" href="students.html">学生管理</a>
+  <a class="nav-link" href="anthem.html">校歌</a>
+</nav>
+
+<div class="page">
+  <div class="page-head">
+    <div class="univ">奶蛙大学</div>
+    <h1>学生信息管理</h1>
+    <div class="sub">可按学号、姓名搜索，按学院专业逐层筛选，点击任意一行查看详情</div>
+    <div class="head-right">
+      <a class="btn" href="majors.html">返回专业合辑</a>
+    </div>
+  </div>
+
+  <div class="filter-tag" id="filter-tag"></div>
+
+  <div class="toolbar">
+    <input type="text" id="toolbar-q" placeholder="按学号或姓名搜索…" />
+    <select id="toolbar-college"></select>
+    <select id="toolbar-major"></select>
+    <span class="spacer"></span>
+    <span class="count-tip" id="count-tip"></span>
+  </div>
+
+  <table class="stu-table">
+    <thead>
+      <tr>
+        <th>学号</th><th>姓名</th><th>性别</th><th>学院</th><th>专业</th><th>班级</th><th>操作</th>
+      </tr>
+    </thead>
+    <tbody id="stu-tbody"></tbody>
+  </table>
+
+  <div style="text-align:center; margin-top:16px;" id="stu-pager"></div>
+</div>
+
+<!-- 详情弹窗 -->
+<div class="modal-mask" id="modal-detail">
+  <div class="modal">
+    <h3><img id="detail-title-img" src="" alt="" />学生详情</h3>
+    <div class="detail-list" id="detail-body"></div>
+    <div class="foot">
+      <button class="btn" data-close>关闭</button>
+    </div>
+  </div>
+</div>
+
+<!-- 添加/编辑弹窗 -->
+<div class="modal-mask" id="modal-form">
+  <div class="modal">
+    <h3 id="form-title">添加学生</h3>
+    <form id="stu-form">
+      <input type="hidden" id="f-orig-id" />
+      <div class="form-grid">
+        <div>
+          <label>学号 *</label>
+          <input type="text" id="f-id" required />
+        </div>
+        <div>
+          <label>姓名 *</label>
+          <input type="text" id="f-name" required />
+        </div>
+        <div>
+          <label>性别</label>
+          <select id="f-gender">
+            <option>男</option>
+            <option>女</option>
+          </select>
+        </div>
+        <div>
+          <label>年级</label>
+          <select id="f-year">
+            <option>2025</option>
+            <option>2024</option>
+            <option>2023</option>
+            <option>2022</option>
+          </select>
+        </div>
+        <div>
+          <label>学院 *</label>
+          <select id="f-college"></select>
+        </div>
+        <div>
+          <label>专业 *</label>
+          <select id="f-major"></select>
+        </div>
+        <div>
+          <label>班级</label>
+          <input type="text" id="f-class" placeholder="如：临床医学1班" />
+        </div>
+        <div>
+          <label>电话</label>
+          <input type="text" id="f-phone" />
+        </div>
+        <div class="full">
+          <label>邮箱</label>
+          <input type="text" id="f-email" />
+        </div>
+        <div class="full">
+          <label>籍贯</label>
+          <input type="text" id="f-hometown" />
+        </div>
+        <div class="full">
+          <label>备注</label>
+          <textarea id="f-note" rows="2"></textarea>
+        </div>
+      </div>
+      <div class="foot">
+        <button type="button" class="btn" data-close>取消</button>
+        <button type="submit" class="btn btn-primary">保存</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/store.js"></script>
+<script src="js/main.js"></script>
+<script src="js/pet.js"></script>
+</body>
+</html>

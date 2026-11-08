@@ -1,0 +1,27 @@
+# Render 蓝图：把仓库连到 Render 后可按此文件创建 Web 服务
+# 数据库请使用云 MySQL（如 Aiven / Railway / 腾讯云），然后在 Render 控制台填下面标了 sync: false 的变量
+
+services:
+  - type: web
+    name: naiwa-student-system
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python backend/app.py
+    envVars:
+      - key: NAIWA_ENGINE
+        value: mysql
+      - key: MYSQL_HOST
+        sync: false
+      - key: MYSQL_PORT
+        value: "3306"
+      - key: MYSQL_USER
+        sync: false
+      - key: MYSQL_PASSWORD
+        sync: false
+      - key: MYSQL_DATABASE
+        sync: false
+      - key: NAIWA_ADMIN_PASSWORD
+        sync: false
+      - key: NAIWA_SECRET
+        generateValue: true

@@ -1,0 +1,1232 @@
+[
+ {
+  "name": "医学院",
+  "majors": [
+   {
+    "name": "超声医学",
+    "img": "超声医学",
+    "sup": false
+   },
+   {
+    "name": "傣医学",
+    "img": "傣医学",
+    "sup": false
+   },
+   {
+    "name": "儿科学",
+    "img": "儿科学",
+    "sup": false
+   },
+   {
+    "name": "耳鼻喉头颈外科学",
+    "img": "耳鼻喉头颈外科学",
+    "sup": false
+   },
+   {
+    "name": "法医学",
+    "img": "法医学",
+    "sup": false
+   },
+   {
+    "name": "放射医学",
+    "img": "放射医学",
+    "sup": false
+   },
+   {
+    "name": "放射肿瘤学",
+    "img": "放射肿瘤学",
+    "sup": false
+   },
+   {
+    "name": "妇幼保健与助产",
+    "img": "妇幼保健与助产",
+    "sup": false
+   },
+   {
+    "name": "肛肠医学",
+    "img": "肛肠医学",
+    "sup": false
+   },
+   {
+    "name": "公安法医",
+    "img": "公安法医",
+    "sup": false
+   },
+   {
+    "name": "公共卫生",
+    "img": "公共卫生",
+    "sup": false
+   },
+   {
+    "name": "公共卫生管理",
+    "img": "公共卫生管理",
+    "sup": false
+   },
+   {
+    "name": "公共卫生与营养",
+    "img": "公共卫生与营养",
+    "sup": false
+   },
+   {
+    "name": "骨科",
+    "img": "骨科",
+    "sup": false
+   },
+   {
+    "name": "护理学",
+    "img": "护理学",
+    "sup": false
+   },
+   {
+    "name": "基础医学",
+    "img": "基础医学",
+    "sup": false
+   },
+   {
+    "name": "急诊医学",
+    "img": "急诊医学",
+    "sup": false
+   },
+   {
+    "name": "健康管理",
+    "img": "健康管理",
+    "sup": false
+   },
+   {
+    "name": "精神医学",
+    "img": "精神医学",
+    "sup": false
+   },
+   {
+    "name": "康复技术",
+    "img": "康复技术",
+    "sup": false
+   },
+   {
+    "name": "康复医学",
+    "img": "康复医学",
+    "sup": false
+   },
+   {
+    "name": "康复治疗",
+    "img": "康复治疗",
+    "sup": false
+   },
+   {
+    "name": "口腔护理",
+    "img": "口腔护理",
+    "sup": false
+   },
+   {
+    "name": "口腔医学",
+    "img": "口腔医学",
+    "sup": false
+   },
+   {
+    "name": "口腔医学技术",
+    "img": "口腔医学技术",
+    "sup": false
+   },
+   {
+    "name": "老年护理",
+    "img": "老年护理",
+    "sup": false
+   },
+   {
+    "name": "临床医学",
+    "img": "临床医学",
+    "sup": false
+   },
+   {
+    "name": "麻醉学",
+    "img": "麻醉学",
+    "sup": false
+   },
+   {
+    "name": "全科医学",
+    "img": "全科医学",
+    "sup": false
+   },
+   {
+    "name": "神经外科",
+    "img": "神经外科",
+    "sup": false
+   },
+   {
+    "name": "生物信息学",
+    "img": "生物信息学",
+    "sup": false
+   },
+   {
+    "name": "生物医学科学",
+    "img": "生物医学科学",
+    "sup": false
+   },
+   {
+    "name": "生物医学系",
+    "img": "生物医学系",
+    "sup": false
+   },
+   {
+    "name": "卫生检验与检疫技术",
+    "img": "卫生检验与检疫技术",
+    "sup": false
+   },
+   {
+    "name": "卫生信息管理",
+    "img": "卫生信息管理",
+    "sup": false
+   },
+   {
+    "name": "心内科",
+    "img": "心内科",
+    "sup": false
+   },
+   {
+    "name": "言语听觉康复",
+    "img": "言语听觉康复",
+    "sup": false
+   },
+   {
+    "name": "眼视光",
+    "img": "眼视光",
+    "sup": false
+   },
+   {
+    "name": "眼视光医学",
+    "img": "眼视光医学",
+    "sup": false
+   },
+   {
+    "name": "医美美容",
+    "img": "医美美容",
+    "sup": false
+   },
+   {
+    "name": "医学检验",
+    "img": "医学检验",
+    "sup": false
+   },
+   {
+    "name": "医学检验技术",
+    "img": "医学检验技术",
+    "sup": false
+   },
+   {
+    "name": "医学检验与实验",
+    "img": "医学检验与实验",
+    "sup": false
+   },
+   {
+    "name": "医学实验技术",
+    "img": "医学实验技术",
+    "sup": false
+   },
+   {
+    "name": "医学营养学",
+    "img": "医学营养学",
+    "sup": false
+   },
+   {
+    "name": "医学影像技术",
+    "img": "医学影像技术",
+    "sup": false
+   },
+   {
+    "name": "医学影像与核医学",
+    "img": "医学影像与核医学",
+    "sup": false
+   },
+   {
+    "name": "幼儿保育",
+    "img": "幼儿保育",
+    "sup": false
+   },
+   {
+    "name": "预防医学",
+    "img": "预防医学",
+    "sup": false
+   },
+   {
+    "name": "运动康复",
+    "img": "运动康复",
+    "sup": false
+   },
+   {
+    "name": "针灸推拿",
+    "img": "针灸推拿",
+    "sup": false
+   },
+   {
+    "name": "针灸与康复",
+    "img": "针灸与康复",
+    "sup": false
+   },
+   {
+    "name": "智慧健康养老服务与管理",
+    "img": "智慧健康养老服务与管理",
+    "sup": false
+   },
+   {
+    "name": "智能医学工程",
+    "img": "智能医学工程",
+    "sup": false
+   },
+   {
+    "name": "中西医临床",
+    "img": "中西医临床",
+    "sup": false
+   },
+   {
+    "name": "中西医临床医学",
+    "img": "中西医临床医学",
+    "sup": false
+   },
+   {
+    "name": "中药资源与开发",
+    "img": "中药资源与开发",
+    "sup": false
+   },
+   {
+    "name": "中医",
+    "img": "中医",
+    "sup": false
+   },
+   {
+    "name": "中医骨伤科学",
+    "img": "中医骨伤科学",
+    "sup": false
+   },
+   {
+    "name": "中医康复",
+    "img": "中医康复",
+    "sup": false
+   },
+   {
+    "name": "中医康复学",
+    "img": "中医康复学",
+    "sup": false
+   },
+   {
+    "name": "中医养生保健",
+    "img": "中医养生保健",
+    "sup": false
+   },
+   {
+    "name": "中医养生学",
+    "img": "中医养生学",
+    "sup": false
+   },
+   {
+    "name": "重症医学",
+    "img": "重症医学",
+    "sup": false
+   }
+  ]
+ },
+ {
+  "name": "药学院",
+  "majors": [
+   {
+    "name": "海洋药学",
+    "img": "海洋药学",
+    "sup": false
+   },
+   {
+    "name": "临床药学",
+    "img": "临床药学",
+    "sup": false
+   },
+   {
+    "name": "生物医药",
+    "img": "生物医药",
+    "sup": false
+   },
+   {
+    "name": "生物制药",
+    "img": "生物制药",
+    "sup": false
+   },
+   {
+    "name": "药剂学",
+    "img": "药剂学",
+    "sup": false
+   },
+   {
+    "name": "药品经营与管理",
+    "img": "药品经营与管理",
+    "sup": false
+   },
+   {
+    "name": "药品生产技术",
+    "img": "药品生产技术",
+    "sup": false
+   },
+   {
+    "name": "药事管理",
+    "img": "药事管理",
+    "sup": false
+   },
+   {
+    "name": "药物分析",
+    "img": "药物分析",
+    "sup": false
+   },
+   {
+    "name": "药物化学",
+    "img": "药物化学",
+    "sup": false
+   },
+   {
+    "name": "药物经济与管理",
+    "img": "药物经济与管理",
+    "sup": false
+   },
+   {
+    "name": "药物制剂",
+    "img": "药物制剂",
+    "sup": false
+   },
+   {
+    "name": "药学",
+    "img": "药学",
+    "sup": false
+   },
+   {
+    "name": "制药工程",
+    "img": "制药工程",
+    "sup": false
+   },
+   {
+    "name": "中药",
+    "img": "中药",
+    "sup": false
+   },
+   {
+    "name": "中药制药",
+    "img": "中药制药",
+    "sup": false
+   }
+  ]
+ },
+ {
+  "name": "新闻传播学院",
+  "majors": [
+   {
+    "name": "播音与主持",
+    "img": "播音与主持",
+    "sup": false
+   },
+   {
+    "name": "播音与主持艺术",
+    "img": "播音与主持艺术",
+    "sup": false
+   },
+   {
+    "name": "广播影视节目制作",
+    "img": "广播影视节目制作",
+    "sup": false
+   },
+   {
+    "name": "广告学",
+    "img": "广告学",
+    "sup": false
+   },
+   {
+    "name": "数媒技专业",
+    "img": "数媒技专业",
+    "sup": false
+   },
+   {
+    "name": "数字媒体技术",
+    "img": "数字媒体技术",
+    "sup": false
+   },
+   {
+    "name": "数字媒体艺术专业",
+    "img": "数字媒体艺术专业",
+    "sup": false
+   },
+   {
+    "name": "网络营销与直播电商",
+    "img": "网络营销与直播电商",
+    "sup": false
+   },
+   {
+    "name": "网络与新媒体",
+    "img": "网络与新媒体",
+    "sup": false
+   },
+   {
+    "name": "戏剧影视文学",
+    "img": "戏剧影视文学",
+    "sup": false
+   },
+   {
+    "name": "新闻学",
+    "img": "新闻学",
+    "sup": false
+   }
+  ]
+ },
+ {
+  "name": "师范教育学院",
+  "majors": [
+   {
+    "name": "教育学",
+    "img": "教育学",
+    "sup": false
+   },
+   {
+    "name": "社会体育指导与管理",
+    "img": "社会体育指导与管理",
+    "sup": false
+   },
+   {
+    "name": "思想政治教育",
+    "img": "思想政治教育",
+    "sup": false
+   },
+   {
+    "name": "特殊教育",
+    "img": "特殊教育",
+    "sup": false
+   },
+   {
+    "name": "小学教育",
+    "img": "小学教育",
+    "sup": false
+   },
+   {
+    "name": "应用心理学",
+    "img": "应用心理学",
+    "sup": false
+   },
+   {
+    "name": "早期教育",
+    "img": "早期教育",
+    "sup": false
+   }
+  ]
+ },
+ {
+  "name": "农学院",
+  "majors": [
+   {
+    "name": "草学",
+    "img": "草学",
+    "sup": false
+   },
+   {
+    "name": "草业科学",
+    "img": "草业科学",
+    "sup": false
+   },
+   {
+    "name": "宠物养护与训导",
+    "img": "宠物养护与训导",
+    "sup": false
+   },
+   {
+    "name": "宠物医疗技术",
+    "img": "宠物医疗技术",
+    "sup": false
+   },
+   {
+    "name": "宠物医疗与护理",
+    "img": "宠物医疗与护理",
+    "sup": false
+   },
+   {
+    "name": "畜牧兽医",
+    "img": "畜牧兽医",
+    "sup": false
+   },
+   {
+    "name": "动物医学",
+    "img": "动物医学",
+    "sup": false
+   },
+   {
+    "name": "果树专业",
+    "img": "果树专业",
+    "sup": false
+   },
+   {
+    "name": "农业生物技术",
+    "img": "农业生物技术",
+    "sup": false
+   },
+   {
+    "name": "水产学",
+    "img": "水产学",
+    "sup": false
+   },
+   {
+    "name": "现代农业",
+    "img": "现代农业",
+    "sup": false
+   },
+   {
+    "name": "现代农业装备应用技术",
+    "img": "现代农业装备应用技术",
+    "sup": false
+   },
+   {
+    "name": "种子科学与工程",
+    "img": "种子科学与工程",
+    "sup": false
+   }
+  ]
+ },
+ {
+  "name": "经济管理学院",
+  "majors": [
+   {
+    "name": "金融学",
+    "img": "经济统计学",
+    "sup": true
+   },
+   {
+    "name": "会计学",
+    "img": "经济学",
+    "sup": true
+   },
+   {
+    "name": "工商管理",
+    "img": "酒店管理与数字化运营",
+    "sup": true
+   },
+   {
+    "name": "财务管理",
+    "img": "老年保健与管理",
+    "sup": true
+   },
+   {
+    "name": "国际经济与贸易",
+    "img": "旅游管理",
+    "sup": true
+   },
+   {
+    "name": "人力资源管理",
+    "img": "农村金融",
+    "sup": true
+   },
+   {
+    "name": "电子商务",
+    "img": "审计学",
+    "sup": true
+   },
+   {
+    "name": "大数据与会计",
+    "img": "市场营销",
+    "sup": true
+   },
+   {
+    "name": "工商企业管理",
+    "img": "数字化运营",
+    "sup": true
+   },
+   {
+    "name": "资产评估",
+    "img": "物流管理",
+    "sup": true
+   },
+   {
+    "name": "投资学",
+    "img": "现代家政服务与管理",
+    "sup": true
+   },
+   {
+    "name": "互联网金融",
+    "img": "现代物业管理专业",
+    "sup": true
+   },
+   {
+    "name": "跨境电子商务",
+    "img": "医疗保险",
+    "sup": true
+   },
+   {
+    "name": "连锁经营与管理",
+    "img": "智慧健康养老服务与管理",
+    "sup": true
+   },
+   {
+    "name": "商务管理",
+    "img": "经济统计学",
+    "sup": true
+   },
+   {
+    "name": "经济统计学",
+    "img": "经济统计学",
+    "sup": false
+   },
+   {
+    "name": "经济学",
+    "img": "经济学",
+    "sup": false
+   },
+   {
+    "name": "酒店管理与数字化运营",
+    "img": "酒店管理与数字化运营",
+    "sup": false
+   },
+   {
+    "name": "老年保健与管理",
+    "img": "老年保健与管理",
+    "sup": false
+   },
+   {
+    "name": "旅游管理",
+    "img": "旅游管理",
+    "sup": false
+   },
+   {
+    "name": "农村金融",
+    "img": "农村金融",
+    "sup": false
+   },
+   {
+    "name": "审计学",
+    "img": "审计学",
+    "sup": false
+   },
+   {
+    "name": "市场营销",
+    "img": "市场营销",
+    "sup": false
+   },
+   {
+    "name": "数字化运营",
+    "img": "数字化运营",
+    "sup": false
+   },
+   {
+    "name": "物流管理",
+    "img": "物流管理",
+    "sup": false
+   },
+   {
+    "name": "现代家政服务与管理",
+    "img": "现代家政服务与管理",
+    "sup": false
+   },
+   {
+    "name": "现代物业管理专业",
+    "img": "现代物业管理专业",
+    "sup": false
+   },
+   {
+    "name": "医疗保险",
+    "img": "医疗保险",
+    "sup": false
+   },
+   {
+    "name": "智慧健康养老服务与管理",
+    "img": "智慧健康养老服务与管理",
+    "sup": false
+   }
+  ]
+ },
+ {
+  "name": "工学院",
+  "majors": [
+   {
+    "name": "电气工程及其自动化",
+    "img": "电气工程及其自动化",
+    "sup": false
+   },
+   {
+    "name": "工业机器人",
+    "img": "工业机器人",
+    "sup": false
+   },
+   {
+    "name": "供用电技术",
+    "img": "供用电技术",
+    "sup": false
+   },
+   {
+    "name": "光电信息工程",
+    "img": "光电信息工程",
+    "sup": false
+   },
+   {
+    "name": "过程装备与控制工程",
+    "img": "过程装备与控制工程",
+    "sup": false
+   },
+   {
+    "name": "化学工程",
+    "img": "化学工程",
+    "sup": false
+   },
+   {
+    "name": "机电一体化",
+    "img": "机电一体化",
+    "sup": false
+   },
+   {
+    "name": "机器人工程",
+    "img": "机器人工程",
+    "sup": false
+   },
+   {
+    "name": "机械电子工程",
+    "img": "机械电子工程",
+    "sup": false
+   },
+   {
+    "name": "机械工程",
+    "img": "机械工程",
+    "sup": false
+   },
+   {
+    "name": "机械设计与制造",
+    "img": "电气工程及其自动化",
+    "sup": true
+   },
+   {
+    "name": "数控技术",
+    "img": "工业机器人",
+    "sup": true
+   },
+   {
+    "name": "智能制造装备技术",
+    "img": "供用电技术",
+    "sup": true
+   },
+   {
+    "name": "电子信息工程技术",
+    "img": "光电信息工程",
+    "sup": true
+   },
+   {
+    "name": "应用电子技术",
+    "img": "过程装备与控制工程",
+    "sup": true
+   },
+   {
+    "name": "物联网应用技术",
+    "img": "化学工程",
+    "sup": true
+   },
+   {
+    "name": "计算机网络技术",
+    "img": "机电一体化",
+    "sup": true
+   },
+   {
+    "name": "软件技术",
+    "img": "机器人工程",
+    "sup": true
+   },
+   {
+    "name": "人工智能技术应用",
+    "img": "机械电子工程",
+    "sup": true
+   }
+  ]
+ },
+ {
+  "name": "艺术学院",
+  "majors": [
+   {
+    "name": "产品设计",
+    "img": "产品设计",
+    "sup": false
+   },
+   {
+    "name": "服装表演",
+    "img": "服装表演",
+    "sup": false
+   },
+   {
+    "name": "服装设计",
+    "img": "服装设计",
+    "sup": false
+   },
+   {
+    "name": "家具设计与制作",
+    "img": "家具设计与制作",
+    "sup": false
+   },
+   {
+    "name": "建筑室内设计",
+    "img": "建筑室内设计",
+    "sup": false
+   },
+   {
+    "name": "美容美体与形象设计",
+    "img": "美容美体与形象设计",
+    "sup": false
+   },
+   {
+    "name": "美容美妆专业",
+    "img": "美容美妆专业",
+    "sup": false
+   },
+   {
+    "name": "美术",
+    "img": "美术",
+    "sup": false
+   },
+   {
+    "name": "视觉传达设计",
+    "img": "视觉传达设计",
+    "sup": false
+   },
+   {
+    "name": "室内艺术设计",
+    "img": "室内艺术设计",
+    "sup": false
+   },
+   {
+    "name": "无业游民",
+    "img": "无业游民",
+    "sup": false
+   }
+  ]
+ },
+ {
+  "name": "法学院",
+  "majors": [
+   {
+    "name": "法律学",
+    "img": "法律学",
+    "sup": false
+   },
+   {
+    "name": "法学",
+    "img": "法学",
+    "sup": false
+   },
+   {
+    "name": "国际政治",
+    "img": "国际政治",
+    "sup": false
+   },
+   {
+    "name": "刑事科学技术",
+    "img": "刑事科学技术",
+    "sup": false
+   },
+   {
+    "name": "知识产权",
+    "img": "知识产权",
+    "sup": false
+   }
+  ]
+ },
+ {
+  "name": "外国语学院",
+  "majors": [
+   {
+    "name": "翻译",
+    "img": "翻译",
+    "sup": false
+   },
+   {
+    "name": "日语专业",
+    "img": "日语专业",
+    "sup": false
+   },
+   {
+    "name": "商务英语",
+    "img": "商务英语",
+    "sup": false
+   },
+   {
+    "name": "西班牙语",
+    "img": "西班牙语",
+    "sup": false
+   },
+   {
+    "name": "英语",
+    "img": "英语",
+    "sup": false
+   }
+  ]
+ },
+ {
+  "name": "文学院",
+  "majors": [
+   {
+    "name": "汉语国际",
+    "img": "汉语国际",
+    "sup": false
+   },
+   {
+    "name": "汉语言文学",
+    "img": "汉语言文学",
+    "sup": false
+   }
+  ]
+ },
+ {
+  "name": "历史学院",
+  "majors": [
+   {
+    "name": "考古学",
+    "img": "考古学",
+    "sup": false
+   },
+   {
+    "name": "文物保护与修复",
+    "img": "文物保护与修复",
+    "sup": false
+   }
+  ]
+ },
+ {
+  "name": "理学院",
+  "majors": [
+   {
+    "name": "力学",
+    "img": "力学",
+    "sup": false
+   },
+   {
+    "name": "数学专业",
+    "img": "数学专业",
+    "sup": false
+   },
+   {
+    "name": "物理材料",
+    "img": "物理材料",
+    "sup": false
+   },
+   {
+    "name": "应用化学",
+    "img": "应用化学",
+    "sup": false
+   },
+   {
+    "name": "应用物理",
+    "img": "应用物理",
+    "sup": false
+   }
+  ]
+ },
+ {
+  "name": "地理学院",
+  "majors": [
+   {
+    "name": "地理科学专业",
+    "img": "地理科学专业",
+    "sup": false
+   }
+  ]
+ },
+ {
+  "name": "环境学院",
+  "majors": [
+   {
+    "name": "测绘地理信息技术",
+    "img": "测绘地理信息技术",
+    "sup": false
+   },
+   {
+    "name": "大气科学",
+    "img": "大气科学",
+    "sup": false
+   },
+   {
+    "name": "环境工程技术",
+    "img": "环境工程技术",
+    "sup": false
+   },
+   {
+    "name": "环境设计",
+    "img": "环境设计",
+    "sup": false
+   },
+   {
+    "name": "水土保持",
+    "img": "水土保持",
+    "sup": false
+   },
+   {
+    "name": "碳中和科学与工程",
+    "img": "碳中和科学与工程",
+    "sup": false
+   }
+  ]
+ },
+ {
+  "name": "汽车学院",
+  "majors": [
+   {
+    "name": "汽修",
+    "img": "汽修",
+    "sup": false
+   },
+   {
+    "name": "铁路机车与车辆",
+    "img": "铁路机车与车辆",
+    "sup": false
+   },
+   {
+    "name": "新能源汽车",
+    "img": "新能源汽车",
+    "sup": false
+   },
+   {
+    "name": "新能源汽车检测与维修技术",
+    "img": "新能源汽车检测与维修技术",
+    "sup": false
+   },
+   {
+    "name": "智能网联汽车技术",
+    "img": "智能网联汽车技术",
+    "sup": false
+   }
+  ]
+ },
+ {
+  "name": "土木工程学院",
+  "majors": [
+   {
+    "name": "港口航道与海岸工程",
+    "img": "港口航道与海岸工程",
+    "sup": false
+   },
+   {
+    "name": "工程测量技术",
+    "img": "工程测量技术",
+    "sup": false
+   },
+   {
+    "name": "建筑学专业",
+    "img": "建筑学专业",
+    "sup": false
+   },
+   {
+    "name": "排水科学工程",
+    "img": "排水科学工程",
+    "sup": false
+   },
+   {
+    "name": "土木工程",
+    "img": "土木工程",
+    "sup": false
+   }
+  ]
+ },
+ {
+  "name": "化学化工学院",
+  "majors": [
+   {
+    "name": "分析检验",
+    "img": "分析检验",
+    "sup": false
+   },
+   {
+    "name": "高分子材料与工程",
+    "img": "高分子材料与工程",
+    "sup": false
+   },
+   {
+    "name": "化学",
+    "img": "化学",
+    "sup": false
+   },
+   {
+    "name": "化学工程与工艺",
+    "img": "化学工程与工艺",
+    "sup": false
+   },
+   {
+    "name": "应用化学",
+    "img": "应用化学",
+    "sup": false
+   }
+  ]
+ },
+ {
+  "name": "生命科学学院",
+  "majors": [
+   {
+    "name": "酿酒技术",
+    "img": "酿酒技术",
+    "sup": false
+   },
+   {
+    "name": "生物工程",
+    "img": "生物工程",
+    "sup": false
+   },
+   {
+    "name": "生物技术",
+    "img": "生物技术",
+    "sup": false
+   },
+   {
+    "name": "生物统计学",
+    "img": "生物统计学",
+    "sup": false
+   },
+   {
+    "name": "细胞生物学",
+    "img": "细胞生物学",
+    "sup": false
+   }
+  ]
+ },
+ {
+  "name": "食品学院",
+  "majors": [
+   {
+    "name": "食品检验检测技术",
+    "img": "食品检验检测技术",
+    "sup": false
+   },
+   {
+    "name": "食品营养与健康",
+    "img": "食品营养与健康",
+    "sup": false
+   },
+   {
+    "name": "食品质量与安全",
+    "img": "食品质量与安全",
+    "sup": false
+   },
+   {
+    "name": "食品智能加工技术",
+    "img": "食品智能加工技术",
+    "sup": false
+   },
+   {
+    "name": "中式面点",
+    "img": "中式面点",
+    "sup": false
+   },
+   {
+    "name": "中西式面点",
+    "img": "中西式面点",
+    "sup": false
+   }
+  ]
+ },
+ {
+  "name": "航空服务学院",
+  "majors": [
+   {
+    "name": "空乘",
+    "img": "空乘",
+    "sup": false
+   }
+  ]
+ },
+ {
+  "name": "体育学院",
+  "majors": [
+   {
+    "name": "乒乓球系",
+    "img": "乒乓球系",
+    "sup": false
+   }
+  ]
+ }
+]

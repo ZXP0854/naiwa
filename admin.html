@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>后台管理 · 奶蛙大学</title>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-page="admin">
+
+<nav class="topnav">
+  <span class="brand"><img src="assets/badge.png" alt="校徽" />奶蛙大学</span>
+  <a class="nav-link" href="index.html">首页</a>
+  <a class="nav-link" href="majors.html">学院专业合辑</a>
+  <a class="nav-link" href="students.html">学生管理</a>
+  <a class="nav-link active" href="admin.html">后台管理</a>
+</nav>
+
+<div class="page">
+  <div class="page-head">
+    <div class="univ">奶蛙大学 · ADMIN CONSOLE</div>
+    <h1>后台管理</h1>
+    <div class="sub" id="admin-sub">学生的添加、编辑、删除只在这里进行，前台仅提供查询</div>
+    <div class="head-right">
+      <a class="btn" href="students.html">前台查询 ↗</a>
+      <div class="page-no" id="db-line"></div>
+    </div>
+  </div>
+
+  <!-- ============ 登录 / 首次设置密码 ============ -->
+  <div class="admin-login" id="admin-login">
+    <div class="admin-card">
+      <div class="admin-card-icon">✳</div>
+      <h3 id="login-title">管理员登录</h3>
+      <p id="login-desc">请输入管理密码，登录后才能修改学生数据。</p>
+      <input type="password" id="admin-pwd" class="admin-input" placeholder="管理密码" autocomplete="off" />
+      <button class="btn btn-primary admin-submit" id="admin-enter">登录后台</button>
+      <div class="admin-msg" id="admin-msg"></div>
+    </div>
+  </div>
+
+  <!-- ============ 控制台 ============ -->
+  <div id="admin-console" style="display:none">
+    <div class="admin-stats" id="admin-stats"></div>
+
+    <div class="toolbar">
+      <input type="text" id="admin-q" placeholder="按学号或姓名搜索…" />
+      <select id="admin-college"></select>
+      <select id="admin-major"></select>
+      <button class="btn btn-primary" id="btn-add">＋ 添加学生</button>
+      <button class="btn" id="btn-reset" title="恢复初始演示数据">重置数据</button>
+      <span class="spacer"></span>
+      <span class="count-tip" id="admin-count"></span>
+      <button class="btn" id="btn-logout">退出登录</button>
+    </div>
+
+    <table class="stu-table">
+      <thead>
+        <tr>
+          <th>学号</th><th>姓名</th><th>性别</th><th>学院</th><th>专业</th><th>班级</th><th>操作</th>
+        </tr>
+      </thead>
+      <tbody id="admin-tbody"></tbody>
+    </table>
+
+    <div style="text-align:center; margin-top:16px;" id="admin-pager"></div>
+  </div>
+</div>
+
+<!-- 详情弹窗 -->
+<div class="modal-mask" id="modal-detail">
+  <div class="modal">
+    <h3><img id="detail-title-img" src="" alt="" />学生详情</h3>
+    <div class="detail-list" id="detail-body"></div>
+    <div class="foot">
+      <button class="btn" data-close>关闭</button>
+    </div>
+  </div>
+</div>
+
+<!-- 添加/编辑弹窗 -->
+<div class="modal-mask" id="modal-form">
+  <div class="modal">
+    <h3 id="form-title">添加学生</h3>
+    <form id="stu-form">
+      <input type="hidden" id="f-orig-id" />
+      <div class="form-grid">
+        <div>
+          <label>学号 *</label>
+          <input type="text" id="f-id" required />
+        </div>
+        <div>
+          <label>姓名 *</label>
+          <input type="text" id="f-name" required />
+        </div>
+        <div>
+          <label>性别</label>
+          <select id="f-gender">
+            <option>男</option>
+            <option>女</option>
+          </select>
+        </div>
+        <div>
+          <label>年级</label>
+          <select id="f-year">
+            <option>2025</option>
+            <option>2024</option>
+            <option>2023</option>
+            <option>2022</option>
+          </select>
+        </div>
+        <div>
+          <label>学院 *</label>
+          <select id="f-college"></select>
+        </div>
+        <div>
+          <label>专业 *</label>
+          <select id="f-major"></select>
+        </div>
+        <div>
+          <label>班级</label>
+          <input type="text" id="f-class" placeholder="如：临床医学1班" />
+        </div>
+        <div>
+          <label>电话</label>
+          <input type="text" id="f-phone" />
+        </div>
+        <div class="full">
+          <label>邮箱</label>
+          <input type="text" id="f-email" />
+        </div>
+        <div class="full">
+          <label>籍贯</label>
+          <input type="text" id="f-hometown" />
+        </div>
+        <div class="full">
+          <label>备注</label>
+          <textarea id="f-note" rows="2"></textarea>
+        </div>
+      </div>
+      <div class="foot">
+        <button type="button" class="btn" data-close>取消</button>
+        <button type="submit" class="btn btn-primary">保存</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/store.js"></script>
+<script src="js/admin.js"></script>
+<script src="js/pet.js"></script>
+</body>
+</html>
