@@ -15,8 +15,16 @@ import hashlib
 import hmac
 import os
 import secrets
+import sys
 
 from flask import Flask, abort, jsonify, request, session
+
+# 根目录下的 db/ 文件夹会遮住 backend/db.py，这里保证 backend 目录优先命中
+_BACKEND_DIR = os.path.dirname(os.path.abspath(__file__))
+_ROOT_DIR = os.path.dirname(_BACKEND_DIR)
+for _p in (_ROOT_DIR, _BACKEND_DIR):
+    if _p not in sys.path:
+        sys.path.insert(0, _p)
 
 import db
 
