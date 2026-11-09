@@ -53,6 +53,26 @@
     return BASE + name + "/frame_0" + i + ".png";
   }
 
+  /* ---------------- 帧预加载 ----------------
+   * 线上每次切帧都发请求，网络慢时上一帧还没下载完就被下一帧打断
+   * （控制台表现为 ERR_ABORTED），画面就一直停在旧帧。
+   * 这里先把整组帧缓存进浏览器，切帧就变成内存操作。
+   */
+  var frameCache = {};
+
+  function getFrames(name) {
+    if (frameCache[name]) return frameCache[name];
+    var total = FRAMES[name];
+    var arr = [];
+    for (var i = 0; i < total; i++) {
+      var im = new Image();
+      im.src = frameSrc(name, i);
+      arr.push(im);
+    }
+    frameCache[name] = arr;
+    return arr;
+  }
+
   /* ---------------- 动画播放 ---------------- */
   // 播放动作；loop=true 循环，否则播一遍后回 idle
   function play(name, loop) {
@@ -63,19 +83,33 @@
     busy = true;
     var total = FRAMES[name];
     if (!total) { setIdle(); return; }
-    img.src = frameSrc(name, 0);
-    animTimer = setInterval(function () {
-      frameIdx++;
-      if (frameIdx >= total) {
-        if (loop) {
-          frameIdx = 0;
-        } else {
-          setIdle();
-          return;
+    var frames = getFrames(name);
+
+    function start() {
+      if (curAnim !== name) return;   // 等待期间已被其他动作替换
+      img.src = frames[0].src;
+      animTimer = setInterval(function () {
+        frameIdx++;
+        if (frameIdx >= total) {
+          if (loop) {
+            frameIdx = 0;
+          } else {
+            setIdle();
+            return;
+          }
         }
-      }
-      img.src = frameSrc(name, frameIdx);
-    }, 125); // ~8fps
+        img.src = frames[frameIdx].src;
+      }, 125); // ~8fps
+    }
+
+    if (frames[0].complete && frames[0].naturalWidth > 0) {
+      start();
+    } else {
+      frames[0].onload = start;
+      frames[0].onerror = function () {
+        if (curAnim === name) setIdle();
+      };
+    }
   }
 
   function stopAnim() {
@@ -360,6 +394,11 @@
     });
 
     scheduleAmbient();
+
+    // 空闲时静默预加载全部动作帧，首次播放就不会卡
+    setTimeout(function () {
+      Object.keys(FRAMES).forEach(getFrames);
+    }, 1000);
   }
 
   if (document.readyState === "loading") {
