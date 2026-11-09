@@ -349,14 +349,26 @@
     S.ready
       .then(function () { return S.session(); })
       .then(function (info) {
-        var dbText = info && info.engine === "mysql" ? "MySQL" :
-                     info && info.engine === "sqlite" ? "SQLite（降级）" :
-                     S.source() === "local" ? "浏览器本地" : "—";
+        var dbText = S.source() === "local" ? "浏览器本地" :
+          info && info.engine === "mysql" ? "MySQL" :
+          info && info.engine === "sqlite" ? "SQLite" : "云端";
         document.getElementById("db-line").textContent = "数据源：" + dbText;
+
+        // 直接双击 html 打开时无法携带登录 Cookie，后台必须走线上地址
+        if (S.isFile) {
+          document.getElementById("login-title").textContent = "请在线上地址使用后台";
+          document.getElementById("login-desc").innerHTML =
+            '本地双击打开时浏览器不允许保存登录状态，请访问线上后台：<br>' +
+            '<a href="' + S.onlineAdminUrl + '">' + S.onlineAdminUrl + '</a>';
+          document.getElementById("admin-pwd").style.display = "none";
+          document.getElementById("admin-enter").style.display = "none";
+          return;
+        }
+
         if (S.source() === "local") {
           document.getElementById("login-title").textContent = "未连接到后端服务";
           document.getElementById("login-desc").textContent =
-            "管理员功能需要后端服务，请双击「启动网站.bat」，或运行 python backend/app.py 后再打开本页。";
+            "暂时无法访问数据接口，请稍后刷新页面重试。";
           document.getElementById("admin-pwd").style.display = "none";
           document.getElementById("admin-enter").style.display = "none";
           bindConsole();

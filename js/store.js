@@ -8,8 +8,10 @@
   "use strict";
 
   var KEY = "naiwa_students_v1";
-  var OFFLINE = "http://127.0.0.1:8000";
-  var API = (location.protocol === "file:" ? OFFLINE : "") + "/api";
+  // 线上后端：直接用浏览器双击打开 html（file://）时，也连到已部署的云端服务
+  var ONLINE = "https://zxp0854.pythonanywhere.com";
+  var IS_FILE = location.protocol === "file:";
+  var API = (IS_FILE ? ONLINE : "") + "/api";
 
   var mode = "api";      // api | local
   var cache = [];
@@ -246,6 +248,8 @@
     logout: logout,
     isAdmin: function () { return admin; },
     isConfigured: function () { return configured; },
-    source: function () { return mode; }
+    source: function () { return mode; },
+    isFile: IS_FILE,
+    onlineAdminUrl: ONLINE + "/admin.html"
   };
 })();
