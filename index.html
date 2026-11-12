@@ -25,10 +25,10 @@
   <section class="lp-hero">
     <div class="lp-hero-text">
       <div class="lp-eyebrow">MILK FROG UNIVERSITY · STUDENT RECORDS</div>
-      <h1>二十二个学院，<br />两百二十四只奶蛙。</h1>
-      <p class="lp-hero-en">22 colleges. 224 frogs. One little student record system.</p>
+      <h1>二十二个学院，<br />一百四十只奶蛙。</h1>
+      <p class="lp-hero-en">22 colleges. 140 frogs. One little student record system.</p>
       <p class="lp-hero-cn">
-        奶蛙大学是一所虚构的大学：22 个学院、224 个专业，每个专业都住着一只奶蛙。
+        奶蛙大学是一所虚构的大学：22 个学院、140 个专业，每个专业都住着一只奶蛙。
         我们把示例图里的形象，做成了一个能点、能查、能改的学生信息管理系统。
       </p>
       <div class="lp-hero-actions">
@@ -62,19 +62,19 @@
       <h2>一所给奶蛙开的大学。<br /><span class="lp-h2-en">A university built for frogs.</span></h2>
       <div class="lp-copy">
         <p>
-          从医学院的白大褂，到航空服务学院的登机牌，奶蛙大学把 22 个学院、224 个专业
+          从医学院的白大褂，到航空服务学院的登机牌，奶蛙大学把 22 个学院、140 个专业
           摊在同一张地图上。每一只专业奶蛙都有自己的制服、道具和小动作。
         </p>
         <p>
-          这里没有真的课堂，但有真的学生档案。系统里预置了约 500 名学生的学号、姓名、
+          这里没有真的课堂，但有真的学生档案。系统里预置了约 320 名学生的学号、姓名、
           性别、学院、专业、班级、联系方式与备注，并且支持随时增删改查。
         </p>
       </div>
     </div>
     <div class="lp-stats">
       <div class="lp-stat"><b>22</b><span>个学院 · COLLEGES</span></div>
-      <div class="lp-stat"><b>224</b><span>个专业 · MAJORS</span></div>
-      <div class="lp-stat"><b>≈500</b><span>份学生档案 · RECORDS</span></div>
+      <div class="lp-stat"><b>140</b><span>个专业 · MAJORS</span></div>
+      <div class="lp-stat"><b>≈320</b><span>份学生档案 · RECORDS</span></div>
       <div class="lp-stat"><b>11</b><span>组助手动作 · ACTIONS</span></div>
     </div>
   </section>
@@ -147,9 +147,9 @@
         <img src="assets/majors/航空服务学院/空乘.png" alt="空乘" />
         <span>空乘</span>
       </a>
-      <a href="students.html?c=食品学院&major=中式面点">
-        <img src="assets/majors/食品学院/中式面点.png" alt="中式面点" />
-        <span>中式面点</span>
+      <a href="students.html?c=食品学院&major=食品营养与健康">
+        <img src="assets/majors/食品学院/食品营养与健康.png" alt="食品营养与健康" />
+        <span>食品营养与健康</span>
       </a>
       <a href="students.html?c=汽车学院&major=新能源汽车">
         <img src="assets/majors/汽车学院/新能源汽车.png" alt="新能源汽车" />
@@ -181,9 +181,16 @@
   <span>JAVA WEB 技术 · 期末作业</span>
 </footer>
 
-<!-- 开场动画：视频 → 校徽 → 首页 -->
+<!-- 开场动画：HTML 星空（每个会话仅首次打开播放） -->
 <div class="intro" id="intro">
-  <video class="intro-video" id="intro-video" src="assets/intro.mp4" muted playsinline preload="auto"></video>
+  <div class="intro-swirl s1"></div>
+  <div class="intro-swirl s2"></div>
+  <div class="intro-stars" id="intro-stars"></div>
+  <div class="intro-stars b" id="intro-stars-b"></div>
+  <div class="intro-moon"></div>
+  <img class="intro-frog f1" src="assets/pet/idle.png" alt="" />
+  <img class="intro-frog f2" src="assets/pet/idle.png" alt="" />
+  <img class="intro-frog f3" src="assets/pet/idle.png" alt="" />
   <div class="intro-badge">
     <img src="assets/badge.png" alt="奶蛙大学校徽" />
     <div class="intro-name">奶蛙大学</div>
@@ -191,6 +198,7 @@
   <button class="intro-skip" id="intro-skip" type="button">跳过</button>
 </div>
 
+<script src="js/starfield.js"></script>
 <script src="js/intro.js"></script>
 <script src="js/data.js"></script>
 <script src="js/store.js"></script>

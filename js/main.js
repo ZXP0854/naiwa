@@ -188,6 +188,23 @@
 
   function renderFilterTag() {
     var box = document.getElementById("filter-tag");
+
+    // 专业介绍卡：按专业筛选时展示
+    var introBox = document.getElementById("major-intro");
+    if (introBox) {
+      var mi0 = (stuState.college && stuState.major)
+        ? D.majorInfo(stuState.college, stuState.major) : null;
+      if (mi0 && mi0.intro) {
+        introBox.innerHTML =
+          '<div class="mi-head"><b>' + esc(stuState.major) + '</b>' +
+          '<span>' + esc(stuState.college) + ' · 专业介绍</span></div>' +
+          '<p>' + esc(mi0.intro) + '</p>';
+        introBox.hidden = false;
+      } else {
+        introBox.hidden = true;
+      }
+    }
+
     if (!stuState.college) { box.innerHTML = ""; return; }
     var mi = stuState.major ? D.majorInfo(stuState.college, stuState.major) : null;
     var imgHtml = mi ? '<img src="' + D.imgPath(stuState.college, mi.img) + '" alt="" />' : "";

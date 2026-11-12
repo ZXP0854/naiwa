@@ -1,57 +1,57 @@
-/* 开场动画：视频播放 → 24 秒时校徽缓缓浮现 → 视频结束后进入首页 */
+/* ============================================================
+ * 开场动画（纯 HTML/CSS 星空，不再内嵌视频）
+ * - 每个浏览器会话只在第一次打开时播放（sessionStorage）
+ * - 点别的页面再回来不会重播；跳过按钮 / Esc 可提前结束
+ * ============================================================ */
 (function () {
+  "use strict";
+  var KEY = "naiwa-intro-seen";
   var intro = document.getElementById("intro");
   if (!intro) return;
 
-  var video = document.getElementById("intro-video");
-  var badge = intro.querySelector(".intro-badge");
-  var skip = document.getElementById("intro-skip");
-  var BADGE_AT = 24;          // 视频播到第 24 秒时，校徽开始出现
-  var finished = false;
-  var guard;
+  // 本会话已看过：直接移除开场层，无任何动画
+  try {
+    if (sessionStorage.getItem(KEY) === "1") {
+      intro.parentNode.removeChild(intro);
+      return;
+    }
+  } catch (e) { /* 隐私模式下忽略 */ }
 
   document.body.classList.add("intro-lock");
 
-  function showBadge() {
-    if (badge && !badge.classList.contains("show")) badge.classList.add("show");
+  var badge = intro.querySelector(".intro-badge");
+  var finished = false;
+  var timers = [];
+
+  // 生成星空（复用 starfield.js 的生成器）
+  var starsA = document.getElementById("intro-stars");
+  var starsB = document.getElementById("intro-stars-b");
+  if (window.NAIWA_SKY) {
+    if (starsA) window.NAIWA_SKY.into(starsA, 55, true);
+    if (starsB) window.NAIWA_SKY.into(starsB, 30, false);
   }
 
-  function leave() {
+  function done() {
     if (finished) return;
     finished = true;
-    clearTimeout(guard);
-    showBadge();
-    // 校徽停留一下再淡出遮罩
+    timers.forEach(clearTimeout);
+    try { sessionStorage.setItem(KEY, "1"); } catch (e) {}
+    badge.classList.add("show");
+    intro.classList.add("done");
+    document.body.classList.remove("intro-lock");
     setTimeout(function () {
-      intro.classList.add("done");
-      document.body.classList.remove("intro-lock");
-      setTimeout(function () {
-        if (intro.parentNode) intro.parentNode.removeChild(intro);
-      }, 750);
-    }, 1200);
+      if (intro.parentNode) intro.parentNode.removeChild(intro);
+    }, 750);
   }
 
-  // 兜底：视频异常时不至于一直黑屏
-  guard = setTimeout(leave, 35000);
+  // 时间轴：星空旋转 ~2.4s 校徽浮现，~6s 淡出进入主页
+  timers.push(setTimeout(function () { badge.classList.add("show"); }, 2400));
+  timers.push(setTimeout(done, 6000));
 
-  if (video) {
-    video.addEventListener("timeupdate", function () {
-      if (video.currentTime >= BADGE_AT) showBadge();
-    });
-    video.addEventListener("ended", leave);
-    video.addEventListener("error", function () {
-      setTimeout(leave, 400);
-    });
-    var p = video.play();
-    if (p && p.catch) {
-      p.catch(function () {
-        setTimeout(leave, 800);
-      });
-    }
-  }
-
-  if (skip) skip.addEventListener("click", leave);
+  function skip() { done(); }
+  var btn = document.getElementById("intro-skip");
+  if (btn) btn.addEventListener("click", skip);
   document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape") leave();
+    if (e.key === "Escape") skip();
   });
 })();
