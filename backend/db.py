@@ -206,6 +206,32 @@ def _clean(v):
     return v
 
 
+def prune_orphans(conn):
+    """清理残留学生：所属 (学院, 专业) 已不在 data/majors.json 中（专业被裁剪）则删除。"""
+    try:
+        with open(os.path.join(ROOT, "data", "majors.json"), "r", encoding="utf-8") as f:
+            tree = json.load(f)
+        valid = {(c["name"], m["name"]) for c in tree for m in c["majors"]}
+    except Exception as e:
+        print("专业列表读取失败，跳过残留学生清理：%s" % e)
+        return 0
+
+    all_rows = rows(conn, "SELECT id, college, major FROM students")
+    stale = [r["id"] for r in all_rows if (r["college"], r["major"]) not in valid]
+    removed = 0
+    for i in range(0, len(stale), 200):
+        chunk = stale[i:i + 200]
+        removed += execute(
+            conn,
+            "DELETE FROM students WHERE id IN (" + ",".join(["?"] * len(chunk)) + ")",
+            tuple(chunk),
+        )
+    if removed:
+        conn.commit()
+        print("已清理 %d 条属于已裁剪专业的残留学生" % removed)
+    return removed
+
+
 def count(conn):
     return one(conn, "SELECT COUNT(*) AS n FROM students")["n"]
 
@@ -266,6 +292,7 @@ def ensure_schema():
             if count(conn) == 0:
                 insert_many(conn, load_seed())
                 conn.commit()
+            prune_orphans(conn)
         finally:
             conn.close()
     else:
@@ -276,5 +303,6 @@ def ensure_schema():
             if count(conn) == 0:
                 insert_many(conn, load_seed())
                 conn.commit()
+            prune_orphans(conn)
         finally:
             conn.close()

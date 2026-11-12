@@ -7,7 +7,7 @@ where python >nul 2>nul
 if errorlevel 1 set "PY=py"
 
 echo ================================================
-echo   Create database "naiwa" and import 515 records
+echo   Create database "naiwa" and import 322 records
 echo   You will be asked for the MySQL password.
 echo ================================================
 echo.

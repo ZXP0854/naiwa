@@ -7,7 +7,8 @@
 (function () {
   "use strict";
 
-  var KEY = "naiwa_students_v1";
+  // v2：专业裁剪后旧缓存（v1）作废，强制按最新种子重新生成
+  var KEY = "naiwa_students_v2";
   // 线上后端：直接用浏览器双击打开 html（file://）时，也连到已部署的云端服务
   var ONLINE = "https://zxp0854.pythonanywhere.com";
   var IS_FILE = location.protocol === "file:";

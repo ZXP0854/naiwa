@@ -7,6 +7,7 @@
   * 托管静态站点（index.html / css / js / assets）
   * 学生数据 REST 接口：查询公开，增删改需管理员登录
   * 首次启动自动建库建表并导入 data/seed_students.json 里的 322 条演示数据
+  * 每次启动按 data/majors.json 自动清理已裁剪专业的残留学生
 
 启动：  python backend/app.py   →  http://127.0.0.1:8000/
 """
