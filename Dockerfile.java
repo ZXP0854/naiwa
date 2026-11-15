@@ -22,7 +22,7 @@ COPY java/lib/*.jar WEB-INF/lib/
 COPY data/seed_students.json data/majors.json WEB-INF/classes/data/
 
 # 3) 静态页面
-COPY index.html majors.html college.html students.html anthem.html admin.html ./
+COPY index.html majors.html college.html students.html anthem.html admin.html _shot.html ./
 COPY css ./css
 COPY js ./js
 COPY assets ./assets
