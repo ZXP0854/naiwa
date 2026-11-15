@@ -1,0 +1,9 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>screenshot helper</title>
+<script>
+  // 仅用于截图：先写入“已看过开场动画”标记，再跳转到目标页面
+  try { sessionStorage.setItem("naiwa-intro-seen", "1"); } catch (e) {}
+  var target = new URLSearchParams(location.search).get("p") || "index.html";
+  location.replace(decodeURIComponent(target));
+</script>
