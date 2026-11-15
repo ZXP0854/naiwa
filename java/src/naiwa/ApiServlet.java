@@ -216,12 +216,13 @@ public class ApiServlet extends HttpServlet {
     private void health(HttpServletResponse res) throws Exception {
         int n = 0;
         try (Connection c = Db.conn()) {
-            n = Db.rows(c, "SELECT COUNT(*) AS n FROM students").isEmpty() ? 0
-                    : ((Number) Db.rows(c, "SELECT COUNT(*) AS n FROM students").get(0).get("n")).intValue();
+            List<Map<String, Object>> r = Db.rows(c, "SELECT COUNT(*) AS n FROM students");
+            n = r.isEmpty() ? 0 : ((Number) r.get(0).get("n")).intValue();
         } catch (Exception ignore) {
             /* 数据库不可用时仍返回结构，便于前端提示 */
         }
-        out(res, Json.write(Json.map("ok", "mysql".equals(Db.ENGINE), "engine", Db.ENGINE,
+        boolean ok = !"none".equals(Db.ENGINE) && n > 0;
+        out(res, Json.write(Json.map("ok", ok, "engine", Db.ENGINE,
                 "students", n, "note", Db.NOTE)));
     }
 

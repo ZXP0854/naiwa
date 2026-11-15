@@ -1,27 +1,26 @@
-# Render 蓝图：把仓库连到 Render 后可按此文件创建 Web 服务
-# 数据库请使用云 MySQL（如 Aiven / Railway / 腾讯云），然后在 Render 控制台填下面标了 sync: false 的变量
-
+# Render 蓝图：Java Servlet + JDBC 版（Docker 运行时）
+# 在 Render 控制台 New → Blueprint 选择本仓库即可按此文件创建服务
+# 未配置 MySQL 时自动使用内置 H2，开箱即可运行
 services:
   - type: web
-    name: naiwa-student-system
-    runtime: python
+    name: naiwa-java
+    runtime: docker
+    dockerfilePath: ./Dockerfile.java
     plan: free
-    buildCommand: pip install -r requirements.txt
-    startCommand: python backend/app.py
+    healthCheckPath: /api/health
     envVars:
-      - key: NAIWA_ENGINE
-        value: mysql
-      - key: MYSQL_HOST
-        sync: false
-      - key: MYSQL_PORT
-        value: "3306"
-      - key: MYSQL_USER
-        sync: false
-      - key: MYSQL_PASSWORD
-        sync: false
-      - key: MYSQL_DATABASE
-        sync: false
-      - key: NAIWA_ADMIN_PASSWORD
-        sync: false
-      - key: NAIWA_SECRET
-        generateValue: true
+      - key: NAIWA_DB_ENGINE
+        value: h2
+      - key: NAIWA_H2_PATH
+        value: /tmp/naiwa
+      # 如需改用云端 MySQL，删除上面的 NAIWA_DB_ENGINE，并补充以下变量：
+      # - key: NAIWA_DB_HOST
+      #   sync: false
+      # - key: NAIWA_DB_PORT
+      #   value: "3306"
+      # - key: NAIWA_DB_USER
+      #   sync: false
+      # - key: NAIWA_DB_PASSWORD
+      #   sync: false
+      # - key: NAIWA_DB_NAME
+      #   sync: false

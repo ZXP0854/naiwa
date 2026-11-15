@@ -49,6 +49,7 @@ Copy-Item (Join-Path $classDir "naiwa\*.class") (Join-Path $webInf "classes\naiw
 Copy-Item (Join-Path $root "data\seed_students.json") (Join-Path $webInf "classes\data")
 Copy-Item (Join-Path $root "data\majors.json") (Join-Path $webInf "classes\data")
 Copy-Item $mysqlJar (Join-Path $webInf "lib")
+Copy-Item (Join-Path $javaDir "lib\h2-2.2.224.jar") (Join-Path $webInf "lib") -ErrorAction SilentlyContinue
 
 Write-Host "[4/5] packaging war" -ForegroundColor Cyan
 if (-not (Test-Path $submitDir)) { New-Item -ItemType Directory -Path $submitDir -Force | Out-Null }

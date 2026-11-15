@@ -1,6 +1,7 @@
 package naiwa;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
@@ -33,6 +34,12 @@ public final class Db {
 
     private static final String SALT = "naiwa-jdbc-salt";
     private static final String DEFAULT_PASSWORD = "123456";
+
+    /** 字段名（H2 会把未加引号的列名小写化，这里统一还原为驼峰写法） */
+    private static final String[] FIELDS = {
+            "id", "name", "gender", "college", "major", "className",
+            "year", "phone", "email", "hometown", "note"
+    };
 
     private static String url = "";
     private static String user = "";
@@ -74,27 +81,61 @@ public final class Db {
         ready = true;
         String u = env("NAIWA_DB_USER", "root");
         String p = env("NAIWA_DB_PASSWORD", "");
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            // 先连到服务器（不指定库）确保数据库存在
-            try (Connection c = DriverManager.getConnection(
-                    "jdbc:mysql://" + host() + ":" + port() + "/" + params(), u, p);
-                 Statement st = c.createStatement()) {
-                st.executeUpdate("CREATE DATABASE IF NOT EXISTS `" + dbName()
-                        + "` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci");
+
+        // 1) 优先使用 MySQL；NAIWA_DB_ENGINE=h2 可强制跳过
+        if (!"h2".equalsIgnoreCase(env("NAIWA_DB_ENGINE", ""))) {
+            try {
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                // 先连到服务器（不指定库）确保数据库存在
+                try (Connection c = DriverManager.getConnection(
+                        "jdbc:mysql://" + host() + ":" + port() + "/" + params(), u, p);
+                     Statement st = c.createStatement()) {
+                    st.executeUpdate("CREATE DATABASE IF NOT EXISTS `" + dbName()
+                            + "` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci");
+                }
+                url = "jdbc:mysql://" + host() + ":" + port() + "/" + dbName() + params();
+                user = u;
+                pass = p;
+                ENGINE = "mysql";
+                try (Connection c = conn()) {
+                    ensureSchema(c);
+                }
+                return;
+            } catch (Exception e) {
+                NOTE = "MySQL 连接失败：" + e.getMessage();
+                System.out.println("[naiwa] " + NOTE + "，切换到内置 H2 数据库");
             }
-            url = "jdbc:mysql://" + host() + ":" + port() + "/" + dbName() + params();
-            user = u;
-            pass = p;
-            ENGINE = "mysql";
+        }
+
+        // 2) 兜底：内置 H2（文件模式，无需任何外部数据库，便于云端部署）
+        try {
+            Class.forName("org.h2.Driver");
+            String path = env("NAIWA_H2_PATH", System.getProperty("java.io.tmpdir") + "/naiwa");
+            new File(path).mkdirs();
+            url = "jdbc:h2:file:" + path + "/naiwa"
+                    + ";MODE=MySQL;DATABASE_TO_LOWER=TRUE;CASE_INSENSITIVE_IDENTIFIERS=TRUE"
+                    + ";NON_KEYWORDS=YEAR";
+            user = "sa";
+            pass = "";
+            ENGINE = "h2";
             try (Connection c = conn()) {
                 ensureSchema(c);
             }
+            NOTE = NOTE.isEmpty() ? "使用内置 H2 数据库" : NOTE + "；已切换到内置 H2 数据库";
         } catch (Exception e) {
             ENGINE = "none";
-            NOTE = "MySQL 连接失败：" + e.getMessage();
+            NOTE = NOTE + "；H2 初始化失败：" + e.getMessage();
             System.out.println("[naiwa] " + NOTE);
         }
+    }
+
+    private static boolean isH2() {
+        return "h2".equals(ENGINE);
+    }
+
+    /** H2 不支持 MySQL 的 ENGINE / CHARSET 表选项 */
+    private static String tableOptions() {
+        return isH2() ? "" : " ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci";
     }
 
     /** 取得连接；调用方负责 close */
@@ -119,7 +160,7 @@ public final class Db {
                     + "`hometown` VARCHAR(80) DEFAULT '',"
                     + "`note` VARCHAR(255) DEFAULT '',"
                     + "PRIMARY KEY (`id`)"
-                    + ") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci");
+                    + ")" + tableOptions());
             try {
                 st.executeUpdate("CREATE INDEX idx_college_major ON students(college, major)");
             } catch (SQLException ignore) {
@@ -129,7 +170,7 @@ public final class Db {
                     + "`k` VARCHAR(50) NOT NULL,"
                     + "`v` VARCHAR(255) DEFAULT '',"
                     + "PRIMARY KEY (`k`)"
-                    + ") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci");
+                    + ")" + tableOptions());
         }
         // 默认管理员密码（与线上一致，首次登录后可在后台修改）
         if (rows(c, "SELECT v FROM settings WHERE k = ?", adminHash()).isEmpty()) {
@@ -237,13 +278,21 @@ public final class Db {
                     for (int i = 1; i <= cols; i++) {
                         Object v = rs.getObject(i);
                         if (v == null) v = "";
-                        row.put(md.getColumnLabel(i), v);
+                        row.put(canonicalLabel(md.getColumnLabel(i)), v);
                     }
                     list.add(row);
                 }
             }
         }
         return list;
+    }
+
+    /** 把数据库返回的列名还原成前端约定的驼峰写法（如 classname -> className） */
+    private static String canonicalLabel(String label) {
+        for (String f : FIELDS) {
+            if (f.equalsIgnoreCase(label)) return f;
+        }
+        return label;
     }
 
     public static Map<String, Object> one(Connection c, String sql, Object... args) throws SQLException {
