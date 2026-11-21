@@ -1,4 +1,6 @@
-package naiwa;
+package com.naiwa.dao;
+
+import com.naiwa.util.Json;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -358,11 +360,11 @@ public final class Db {
         }
     }
 
-    static String str(Object v) {
+    public static String str(Object v) {
         return v == null ? "" : String.valueOf(v);
     }
 
-    static long num(Object v) {
+    public static long num(Object v) {
         if (v instanceof Number) return ((Number) v).longValue();
         try {
             return Long.parseLong(String.valueOf(v).trim());

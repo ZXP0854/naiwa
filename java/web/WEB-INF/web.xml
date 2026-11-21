@@ -11,7 +11,7 @@
   <!-- 所有 REST 接口统一由 ApiServlet 处理 -->
   <servlet>
     <servlet-name>api</servlet-name>
-    <servlet-class>naiwa.ApiServlet</servlet-class>
+    <servlet-class>com.naiwa.controller.ApiServlet</servlet-class>
     <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>

@@ -26,7 +26,7 @@ New-Item -ItemType Directory -Path $classDir -Force | Out-Null
 New-Item -ItemType Directory -Path $stageDir -Force | Out-Null
 
 Write-Host "[2/5] compiling java sources" -ForegroundColor Cyan
-$sources = Get-ChildItem (Join-Path $javaDir "src\naiwa\*.java") | ForEach-Object { $_.FullName }
+$sources = Get-ChildItem (Join-Path $javaDir "src") -Recurse -Filter *.java | ForEach-Object { $_.FullName }
 & javac -encoding UTF-8 -cp $servletJar -d $classDir $sources
 if ($LASTEXITCODE -ne 0) { throw "javac failed" }
 
@@ -40,12 +40,12 @@ foreach ($d in @("css", "js", "assets")) {
 
 $webInf = Join-Path $stageDir "WEB-INF"
 New-Item -ItemType Directory -Path $webInf -Force | Out-Null
-New-Item -ItemType Directory -Path (Join-Path $webInf "classes\naiwa") -Force | Out-Null
+New-Item -ItemType Directory -Path (Join-Path $webInf "classes\com\naiwa") -Force | Out-Null
 New-Item -ItemType Directory -Path (Join-Path $webInf "classes\data") -Force | Out-Null
 New-Item -ItemType Directory -Path (Join-Path $webInf "lib") -Force | Out-Null
 
 Copy-Item (Join-Path $javaDir "web\WEB-INF\web.xml") (Join-Path $webInf "web.xml")
-Copy-Item (Join-Path $classDir "naiwa\*.class") (Join-Path $webInf "classes\naiwa")
+Copy-Item (Join-Path $classDir "com\naiwa\*") (Join-Path $webInf "classes\com\naiwa") -Recurse
 Copy-Item (Join-Path $root "data\seed_students.json") (Join-Path $webInf "classes\data")
 Copy-Item (Join-Path $root "data\majors.json") (Join-Path $webInf "classes\data")
 Copy-Item $mysqlJar (Join-Path $webInf "lib")

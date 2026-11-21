@@ -13,8 +13,8 @@ WORKDIR /build
 # 1) 编译 Servlet（Tomcat 镜像自带 JDK 与 servlet-api.jar）
 COPY java/src ./src
 COPY java/web/WEB-INF/web.xml ./WEB-INF/web.xml
-RUN mkdir -p WEB-INF/classes/naiwa WEB-INF/classes/data WEB-INF/lib \
-    && javac -encoding UTF-8 -cp /usr/local/tomcat/lib/servlet-api.jar -d WEB-INF/classes src/naiwa/*.java \
+RUN mkdir -p WEB-INF/classes WEB-INF/classes/data WEB-INF/lib \
+    && javac -encoding UTF-8 -cp /usr/local/tomcat/lib/servlet-api.jar -d WEB-INF/classes $(find src -name "*.java") \
     && rm -rf src
 
 # 2) 依赖与数据

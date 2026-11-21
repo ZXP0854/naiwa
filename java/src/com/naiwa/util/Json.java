@@ -1,4 +1,4 @@
-package naiwa;
+package com.naiwa.util;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
