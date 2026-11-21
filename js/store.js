@@ -1,6 +1,6 @@
 /* ============================================================
  * 学生数据仓库
- * - 数据来源优先：本地 Flask + MySQL 后端（/api）
+ * - 数据来源优先：Java Servlet + JDBC 后端（/api）
  * - 后端不可用时自动回退到 localStorage，保证纯静态也能打开
  * - 写操作（增/删/改/重置）需要管理员登录，接口由服务端校验
  * ============================================================ */
@@ -10,7 +10,7 @@
   // v2：专业裁剪后旧缓存（v1）作废，强制按最新种子重新生成
   var KEY = "naiwa_students_v2";
   // 线上后端：直接用浏览器双击打开 html（file://）时，也连到已部署的云端服务
-  var ONLINE = "https://zxp0854.pythonanywhere.com";
+  var ONLINE = "https://naiwa-java.onrender.com";
   var IS_FILE = location.protocol === "file:";
   var API = (IS_FILE ? ONLINE : "") + "/api";
 
